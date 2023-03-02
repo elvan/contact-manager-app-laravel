@@ -17,50 +17,7 @@
         integrity="sha256-PGFdiDxerCeG50qqJg6zEaXpjGcJYVGe0LZS5dbh1rY=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.2/dist/flatly/bootstrap.min.css"
         integrity="sha256-GBSk3SnkLpARJ0imUeiqf7XvgjBDjTIZTVUNoJGyGT4=" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: 'Varela Round', sans-serif;
-            background-color: #f7f7f7;
-        }
-
-        .navbar {
-            background: #fff;
-            -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-            -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-            box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-            padding: 10px 16px;
-        }
-
-        .navbar .navbar-brand {
-            font-weight: bold;
-            letter-spacing: -1px;
-            font-size: 20px;
-        }
-
-        .fileinput {
-            text-align: center;
-        }
-
-        .btn-circle {
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            padding: 6px 0;
-            font-size: 12px;
-            line-height: 1.428571429;
-            border-radius: 15px;
-        }
-
-        ul.pagination {
-            margin-bottom: 0;
-        }
-
-        .card-title {
-            color: #fff;
-            background: #435d7d;
-            padding: 16px 20px;
-        }
-    </style>
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body>
