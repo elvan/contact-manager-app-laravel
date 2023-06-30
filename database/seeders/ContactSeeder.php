@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Company;
 use App\Models\Contact;
 use Faker\Factory as Faker;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ContactSeeder extends Seeder
@@ -21,7 +22,7 @@ class ContactSeeder extends Seeder
         $contacts = [];
 
         foreach ($companies as $company) {
-            foreach (range(1, 5) as $index) {
+            foreach (range(1, mt_rand(5, 15)) as $index) {
                 $contact = [
                     'first_name' => $faker->firstName(),
                     'last_name' => $faker->lastName(),
