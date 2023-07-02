@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use Database\Seeders\CompanySeeder;
-use Database\Seeders\ContactSeeder;
+use App\Models\Company;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            CompanySeeder::class,
-            ContactSeeder::class,
-        ]);
+        Company::factory(10)->hasContacts(10)->create();
     }
 }
