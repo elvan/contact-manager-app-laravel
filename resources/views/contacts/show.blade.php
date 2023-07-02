@@ -60,7 +60,7 @@
                                             <a href="{{ route('contacts.edit', $contact->id) }}"
                                                 class="btn btn-info">Edit</a>
                                             <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST"
-                                                onsubmit="return confirm('Are you sure?')" style="display: inline">
+                                                style="display: inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger"
