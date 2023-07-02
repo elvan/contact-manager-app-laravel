@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Repositories\CompanyRepository;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -27,12 +28,31 @@ class ContactController extends Controller
 
     public function create()
     {
-        return view('contacts.create');
+        $companies = $this->company->pluck();
+
+        return view('contacts.create', compact('companies'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'email' => 'required|email',
+            'phone' => 'nullable',
+            'address' => 'nullable',
+            'company_id' => 'required|exists:companies,id'
+        ]);
+
+        Contact::create($request->all());
+
+        return redirect()->route('contacts.index')->with('message', 'Contact has been added successfully');
     }
 
     public function show($id)
     {
         $contact = Contact::findOrFail($id);
+
         return view('contacts.show')->with('contact', $contact);
     }
 }
