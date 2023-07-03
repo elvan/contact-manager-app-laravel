@@ -22,9 +22,9 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand text-uppercase" href="index.html">
+            <a class="navbar-brand text-uppercase" href="/">
                 <strong>Contact</strong> App
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
@@ -39,14 +39,16 @@
                     <li class="nav-item active"><a href="#" class="nav-link">Contacts</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-2"><a href="#" class="btn btn-outline-secondary">Login</a></li>
-                    <li class="nav-item"><a href="#" class="btn btn-outline-primary text-light">Register</a></li>
+                    <li class="nav-item mr-2"><a href="{{ route('login') }}" class="btn btn-outline-secondary">Login</a>
+                    </li>
+                    <li class="nav-item"><a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             John Doe
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="profile.html">Settings</a>
                             <a class="dropdown-item" href="#">Logout</a>
                         </div>
@@ -58,17 +60,9 @@
 
     @yield('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/jasny-bootstrap@4.0.0/dist/js/jasny-bootstrap.min.js"
-        integrity="sha256-IYxM21PnjkYhfOUWo1pWQW6Iy4UKMO3zylWIi2ze2mk=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
