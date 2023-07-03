@@ -2,7 +2,6 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -13,9 +12,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     /**
      * Validate and update the given user's profile information.
      *
-     * @param  array<string, string>  $input
+     * @param  mixed  $user
+     * @param  array  $input
+     * @return void
      */
-    public function update(User $user, array $input): void
+    public function update($user, array $input)
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -27,7 +28,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-        ])->validateWithBag('updateProfileInformation');
+            'phone' => ['nullable', 'string', 'max:255'],
+            'company' => ['nullable', 'string', 'max:255'],
+            'country' => ['nullable', 'string', 'max:255'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'profile_picture' => ['nullable', 'image'],
+        ])->validate();
 
         if (
             $input['email'] !== $user->email &&
@@ -38,6 +44,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'phone' => $input['phone'],
+                'company' => $input['company'],
+                'country' => $input['country'],
+                'address' => $input['address'],
             ])->save();
         }
     }
@@ -45,13 +55,19 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     /**
      * Update the given verified user's profile information.
      *
-     * @param  array<string, string>  $input
+     * @param  mixed  $user
+     * @param  array  $input
+     * @return void
      */
-    protected function updateVerifiedUser(User $user, array $input): void
+    protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+            'phone' => $input['phone'],
+            'company' => $input['company'],
+            'country' => $input['country'],
+            'address' => $input['address'],
             'email_verified_at' => null,
         ])->save();
 
