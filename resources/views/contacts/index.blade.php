@@ -24,18 +24,7 @@
                         </div>
                         <div class="card-body">
                             @include('contacts._filter')
-                            @if ($message = session('message'))
-                                <div class="alert alert-success">
-                                    {{ $message }}
-                                    @if ($undoRoute = session('undoRoute'))
-                                        <form action="{{ $undoRoute }}" method="POST" style="display: inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn alert-link">Undo</button>
-                                        </form>
-                                    @endif
-                                </div>
-                            @endif
+                            @include('shared.flash')
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -63,7 +52,7 @@
                                             'index' => $index,
                                         ])
                                     @empty
-                                        @include('contacts._empty')
+                                        @include('shared.empty', ['numCol' => 6])
                                     @endforelse
                                 </tbody>
                             </table>

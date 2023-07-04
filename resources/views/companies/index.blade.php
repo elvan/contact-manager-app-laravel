@@ -23,19 +23,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            {{-- @include('companies._filter') --}}
-                            @if ($message = session('message'))
-                                <div class="alert alert-success">
-                                    {{ $message }}
-                                    @if ($undoRoute = session('undoRoute'))
-                                        <form action="{{ $undoRoute }}" method="POST" style="display: inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn alert-link">Undo</button>
-                                        </form>
-                                    @endif
-                                </div>
-                            @endif
+                            @include('shared.flash')
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -63,9 +51,8 @@
                                             'index' => $index,
                                         ])
                                     @empty
-                                        @include('companies._empty')
+                                        @include('shared.empty', ['numCol' => 6])
                                     @endforelse
-                                    {{-- @each('companies._company', $companies, 'company', 'companies._empty') --}}
                                 </tbody>
                             </table>
 
