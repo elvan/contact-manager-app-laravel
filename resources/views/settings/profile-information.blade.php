@@ -9,7 +9,7 @@
                 @include('settings._sidenav')
 
                 <div class="col-md-9">
-                    <form action="{{ route('user-profile-information.update') }}" method="POST">
+                    <form action="{{ route('user-profile-information.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card">
@@ -74,7 +74,7 @@
                                                     <span class="btn btn-outline-secondary btn-file"><span
                                                             class="fileinput-new">Select
                                                             image</span><span class="fileinput-exists">Change</span><input
-                                                            type="file" name="profile_picture"></span>
+                                                            type="file" name="profile_picture" accept="image/*"></span>
                                                     <a href="#" class="btn btn-outline-secondary fileinput-exists"
                                                         data-dismiss="fileinput">Remove</a>
                                                 </div>

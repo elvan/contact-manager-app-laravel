@@ -35,6 +35,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'profile_picture' => ['nullable', 'image'],
         ])->validate();
 
+        $this->uploadProfilePicture($input);
+
         if (
             $input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail
@@ -49,6 +51,21 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'country' => $input['country'],
                 'address' => $input['address'],
             ])->save();
+        }
+    }
+
+    protected function uploadProfilePicture(&$input)
+    {
+        if (request()->hasFile('profile_picture')) {
+            $uploadedFile = $input['profile_picture'];
+
+            $fileName = $uploadedFile->storeAs(
+                'profile',
+                'profile-user-' . request()->user()->id .
+                    '.' .
+                    $uploadedFile->getClientOriginalExtension()
+            );
+            $input['profile_picture'] = $fileName;
         }
     }
 
