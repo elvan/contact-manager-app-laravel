@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use App\Models\Company;
 use App\Models\Contact;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -39,7 +41,6 @@ class ContactController extends Controller
     public function store(ContactRequest $request)
     {
         $request->user()->contacts()->create($request->all());
-
         return redirect()->route('contacts.index')->with('message', 'Contact has been added successfully');
     }
 
@@ -51,14 +52,12 @@ class ContactController extends Controller
     public function edit(Contact $contact)
     {
         $companies = $this->userCompanies();
-
         return view('contacts.edit', compact('companies', 'contact'));
     }
 
     public function update(ContactRequest $request, Contact $contact)
     {
         $contact->update($request->all());
-
         return redirect()->route('contacts.index')->with('message', 'Contact has been updated successfully');
     }
 
@@ -66,31 +65,23 @@ class ContactController extends Controller
     {
         $contact->delete();
         $redirect = request()->query('redirect');
-
         return ($redirect ? redirect()->route($redirect) : back())
             ->with('message', 'Contact has been moved to trash.')
-            ->with('undoRoute', $this->getUndoRoute('contacts.restore', $contact));
+            ->with('undoRoute', getUndoRoute('contacts.restore', $contact));
     }
 
     public function restore(Contact $contact)
     {
         $contact->restore();
-
         return back()
             ->with('message', 'Contact has been restored from trash.')
-            ->with('undoRoute', $this->getUndoRoute('contacts.destroy', $contact));
+            ->with('undoRoute', getUndoRoute('contacts.destroy', $contact));
     }
 
     public function forceDelete(Contact $contact)
     {
         $contact->forceDelete();
-
         return back()
             ->with('message', 'Contact has been removed permanently.');
-    }
-
-    protected function getUndoRoute($name, $resource)
-    {
-        return request()->missing('undo') ? route($name, [$resource->id, 'undo' => true]) : null;
     }
 }

@@ -38,7 +38,7 @@
                                         <th scope="col">
                                             {!! sortable('Email') !!}
                                         </th>
-                                        <th scope="col">Companies</th>
+                                        <th scope="col">Contacts</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>

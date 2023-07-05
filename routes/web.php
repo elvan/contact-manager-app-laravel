@@ -25,6 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class);
 
     Route::get('/settings/profile-information', ProfileController::class)->name('user-profile-information.edit');
+
     Route::get('/settings/password', PasswordController::class)->name('user-password.edit');
 
     Route::resource('/contacts', ContactController::class);
@@ -38,4 +39,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->withTrashed();
 
     Route::resource('/companies', CompanyController::class);
+
+    Route::delete('/companies/{company}/restore', [CompanyController::class, 'restore'])
+        ->name('companies.restore')
+        ->withTrashed();
+
+    Route::delete('/companies/{company}/force-delete', [CompanyController::class, 'forceDelete'])
+        ->name('companies.force-delete')
+        ->withTrashed();
 });

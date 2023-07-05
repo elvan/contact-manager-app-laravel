@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -91,8 +92,27 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        //
+        $company->delete();
+        $redirect = request()->query('redirect');
+        return ($redirect ? redirect()->route($redirect) : back())
+            ->with('message', 'Company has been moved to trash.')
+            ->with('undoRoute', getUndoRoute('companies.restore', $company));
+    }
+
+    public function restore(Company $company)
+    {
+        $company->restore();
+        return back()
+            ->with('message', 'Company has been restored from trash.')
+            ->with('undoRoute', getUndoRoute('companies.destroy', $company));
+    }
+
+    public function forceDelete(Company $company)
+    {
+        $company->forceDelete();
+        return back()
+            ->with('message', 'Company has been removed permanently.');
     }
 }
