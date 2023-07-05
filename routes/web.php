@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,4 +48,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/companies/{company}/force-delete', [CompanyController::class, 'forceDelete'])
         ->name('companies.force-delete')
         ->withTrashed();
+});
+
+
+Route::get('/eagerload-multipe', function () {
+    $users = User::with(['companies', 'contacts'])->get();
+
+    foreach ($users as $user) {
+        echo $user->name . ": ";
+        echo $user->companies->count() . " companies, " . $user->contacts->count() . " contacts<br>";
+    }
 });
