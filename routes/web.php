@@ -108,3 +108,15 @@ Route::get('/eagerload-default', function () {
         echo "<br />";
     }
 });
+
+Route::get('/count-models', function () {
+    $users = User::get();
+    $users->loadCount(['companies' => function ($query) {
+        $query->where('email', 'like', '%@gmail.com');
+    }]);
+    foreach ($users as $user) {
+        echo $user->name . "<br />";
+        echo $user->companies_count . " companies<br />";
+        echo "<br />";
+    }
+});
