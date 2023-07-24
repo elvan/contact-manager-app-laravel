@@ -1,3 +1,65 @@
+# Contacts App
+
+![Contact List](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211006.png)
+*Contact List*
+
+---
+
+![Add New Contact](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211038.png)
+*Add New Contact*
+
+---
+
+![Contact Details](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211053.png)
+*Contact Details*
+
+---
+
+![Edit Contact](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211113.png)
+*Edit Contact*
+
+---
+
+![Company List](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211133.png)
+*Company List*
+
+---
+
+![Add New Company](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211145.png)
+*Add New Company*
+
+---
+
+![Company Details](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211158.png)
+*Company Details*
+
+---
+
+![Edit Company](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211208.png)
+*Edit Company*
+
+---
+
+![Edit Profile](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211237.png)
+*Edit Profile*
+
+---
+
+![User Register Page](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211252.png)
+*User Register Page*
+
+---
+
+![User Login Page](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211307.png)
+*User Login Page*
+
+---
+
+![Forgot Password Page](https://raw.githubusercontent.com/elvan/contact-manager-app-laravel/main/_screenshots/Screenshot%202023-07-24%20211317.png)
+*Forgot Password Page*
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
