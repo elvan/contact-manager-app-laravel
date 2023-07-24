@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>@yield('title', 'Contact App')</title>
+    <title>@yield('title', 'Contacts App')</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
     <!-- Bootstrap -->
@@ -20,12 +20,12 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="d-flex flex-column vh-100">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand text-uppercase" href="/">
-                <strong>Contact</strong> App
+                <strong>Contacts</strong> App
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,12 +46,12 @@
 
     @yield('content')
 
-    <footer class="py-5 footer">
+    <footer class="py-5 footer mt-auto">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md">
-                    <strong>Contact App</strong>
-                    <small class="d-block mb-3">© 2021-2022</small>
+                    <strong>Contacts App</strong>
+                    <small class="d-block mb-3">© 2023</small>
                 </div>
                 <div class="col-6 col-md">
                     <h5>Features</h5>

@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('content')
-    <div class="py-5 bg-white">
+    <div class="py-5 bg-white vh-100">
         <div class="px-4 my-5 text-center">
             <h1 class="display-5 fw-bold mt-4">Contact App</h1>
             <div class="col-lg-6 mx-auto">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="container py-5">
+    {{-- <div class="container py-5">
         <div class="row">
             <div class="col-lg-4">
                 <h3>Data Protection</h3>
@@ -29,8 +29,8 @@
                 <p>Weekly notifications are sent to you, including birthday reminders.</p>
             </div><!-- /.col-lg-4 -->
         </div>
-    </div>
-    <section class="bg-white">
+    </div> --}}
+    {{-- <section class="bg-white">
         <div class="container py-5">
             <h2 class="text-center my-5">Easy to try. Fair pricing to upgrade.</h2>
             <div class="card-deck mb-3 text-center">
@@ -78,5 +78,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
